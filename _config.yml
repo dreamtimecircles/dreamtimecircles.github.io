@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Fabio Tudone" # ""
   avatar           : "images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Surfing cultures, crafting software"
+  bio              : "Learning by crafting software and surfing cultures"
   location         : # "Somewhere"
   email            :
   links:

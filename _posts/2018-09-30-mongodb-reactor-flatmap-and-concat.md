@@ -2,7 +2,7 @@
 layout: single
 title:  "MongoDB, Reactor, `flatMap` and `concat`"
 date:   2018-09-30 12:54:47 +0200
-# categories: mongodb reactive reactor
+categories: [MongoDB, Reactor]
 ---
 This one took some time to understand and figure out, possibly due to the fact that [Project Reactor](https://projectreactor.io/) is new playground for me, so I thought I'd share it.
 
@@ -83,5 +83,7 @@ before getDocById: 2
 after getDocById: 2
 after getDocById: 1
 ```
+
+Bottom line: never forget that `Flux`, `Mono` and related operators have quite an articulate behavior.
 
 I also recommend having a look at [Combining Publishers in Project Reactor](https://www.baeldung.com/reactor-combine-streams) for information on additional combinators.
