@@ -1,8 +1,8 @@
 ---
 layout: single
-title:  "MongoDB, Reactor and concat"
+title:  "MongoDB, Reactor, `flatMap` and `concat`"
 date:   2018-09-30 12:54:47 +0200
-categories: mongodb reactive reactor
+# categories: mongodb reactive reactor
 ---
 This one took some time to understand and figure out, possibly due to the fact that [Project Reactor](https://projectreactor.io/) is new playground for me, so I thought I'd share it.
 
@@ -30,7 +30,7 @@ Consider the following [Kotlin](http://kotlinlang.org/) (admittedly silly) snipp
         }).block() // Only for demo
 ```
 
-In simplified terms we could say that, when we subcribe (in this case with `block()`), this code will first fetch the document IDs we're interested in (through `findIds()`) and "then" for each ID obtained it will also fetch document with that ID (through `getDocById()`).
+In simplified terms we could say that, when we subscribe (in this case with `block()`), this code will first fetch the document IDs we're interested in (through `findIds()`) and "then" for each ID obtained it will also fetch document with that ID (through `getDocById()`).
 
 The problem is that this simplified view can confuse us and cause us to think that [`flatMap`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#flatMap-java.util.function.Function-) acts as a sequential loop, which in general isn't true.
 
