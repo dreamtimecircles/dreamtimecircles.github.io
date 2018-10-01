@@ -74,15 +74,7 @@ We should of course try the best we can to avoid depending on sequential behavio
 
 Note that we don't use anymore `flatMap` to subscribe, and so "hook in", document-retrieval `Mono`s as soon as IDs arrive but rather we just ask to simply _transform_ these IDs into sleeping/unsubscribed `Mono`s with [`map`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#map-java.util.function.Function-) and finally we use `concat` on this resulting "publisher of publishers" to process each one sequentially.
 
-This change will restrict the document retrieval to be sequential no matter how the publishers are implemented, thus it will make it impossible to produce traces such as:
-
-```
-before getDocById: 1
-before getDocById: 2
-...
-after getDocById: 2
-after getDocById: 1
-```
+This change will restrict the document retrieval to be sequential no matter how the publishers are implemented, thus it will make it impossible to produce traces such as the one above.
 
 Bottom line: never forget that `Flux`, `Mono` and related operators have quite an articulate behavior.
 
